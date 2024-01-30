@@ -17,14 +17,14 @@ This README provides an overview of my Python project showcasing volcano-related
 
 Start the application by running python3 server.py and interact with it by opening a window in your browser with the address http://localhost:9001/
 
-$ python3 server.py
-2021-11-27 15:07:33 - INFO - Connected to database movie_stream
- * Serving Flask app "app" (lazy loading)
- * Environment: production
+>$ python3 server.py
+>2021-11-27 15:07:33 - INFO - Connected to database movie_stream
+ >* Serving Flask app "app" (lazy loading)
+ >* Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
- * Debug mode: off
-2021-11-27 15:07:33 - INFO -  * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+ >* Debug mode: off
+>2022-11-27 15:07:33 - INFO -  * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
 
 
 
