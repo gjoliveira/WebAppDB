@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Volcano Information for {{ country }}</h1>
+
+  {% if volcano_info %}
+    <h2>Volcanos in {{ country }}</h2>
+    
+    <p class="total-volcanos">Total number of volcanos: {{ volcano_info|length }}</p>
+
+    <ul>
+      {% for volcano in volcano_info %}
+        <li>
+          <span style="font-size: 1.5em; font-weight: bold; color: #3498db;">{{ volcano['volcano_name'] }}</span><br>
+          <p><strong>Volcano Number:</strong> {{ volcano['volcano_number'] }}</p>
+          <p><strong>Primary Volcano Type:</strong> {{ volcano['primary_volcano_type'] }}</p>
+          <p><strong>Last Eruption Year:</strong> {{ volcano['last_eruption_year'] }}</p>
+          <p><strong>Latitude:</strong> {{ volcano['latitude'] }}</p>
+          <p><strong>Longitude:</strong> {{ volcano['longitude'] }}</p>
+          <p><strong>Tectonic Settings:</strong> {{ volcano['tectonic_settings'] }}</p>
+          <p><strong>Country:</strong> {{ volcano['country'] }}</p>
+          <p><strong>Region:</strong> {{ volcano['region'] }}</p>
+          <p><strong>Subregion:</strong> {{ volcano['subregion'] }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+
+  {% else %}
+    <p>No volcano information available for the selected country.</p>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Volcano Eruptions in {{ country }}</h1>
+  
+
+  {% if eruptions %}
+    <p class="total-volcanos">Total number of eruptions: {{ total_items }}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Volcano Name</th>
+          <th>Start Year</th>
+          <th>End Year</th>
+          <th><a href="https://en.wikipedia.org/wiki/Volcanic_explosivity_index" target="_blank">VEI</a></th>
+          <th>Area of Activity</th>
+          <th>Event Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for eruption in eruptions %}
+          <tr>
+            <td>{{ eruption['volcano_name'] }}</td>
+            <td>{{ eruption['eruption_start_year'] }}</td>
+            <td>{{ eruption['end_year'] }}</td>
+            <td>{{ eruption['vei'] }}</td>
+            <td>{{ eruption['area_of_activity'] }}</td>
+            <td>{{ eruption['event_type'] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Pagination with dropdown for page selection -->
+    <div>
+      {% if total_pages > 1 %}
+        <span>Page:</span>
+        <select onchange="window.location.href=this.value">
+          {% for page_num in range(1, total_pages + 1) %}
+            <option value="?page={{ page_num }}" {% if page_num == page %}selected{% endif %}>{{ page_num }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+
+      {% if page > 1 %}
+        <a href="?page={{ page - 1 }}">Previous</a>
+      {% endif %}
+
+      Page {{ page }} of {{ total_pages }}
+
+      {% if page < total_pages %}
+        <a href="?page={{ page + 1 }}">Next</a>
+      {% endif %}
+    </div>
+
+  {% else %}
+    <p>No eruption information available for the selected country.</p>
+  {% endif %}
+
+{% endblock %}

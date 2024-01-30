@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Eruption Information</h1>
+
+  {% if eruption_info_number %}
+    <h2>{{ eruption_info_number['eruption_number'] }}</h2>
+
+    <p><strong>Volcano Number:</strong> {{ eruption_info_number['volcano_number'] }}</p>
+    <p><strong>Eruption Category:</strong> {{ eruption_info_number['eruption_category'] }}</p>
+    <p><strong>Area of Activity:</strong> {{ eruption_info_number['area_of_activity'] }}</p>
+    <p><strong>VEI:</strong> {{ eruption_info_number['vei'] }}</p>
+    <p><strong>Eruption Start Year:</strong> {{ eruption_info_number['eruption_start_year'] }}</p>
+    <p><strong>Evidence Method Dating:</strong> {{ eruption_info_number['evidence_method_dating'] }}</p>
+    <p><strong>End Year:</strong> {{ eruption_info_number['end_year'] }}</p>
+    <p><strong>End Month:</strong> {{ eruption_info_number['end_month'] }}</p>
+    <!-- Add more fields as needed -->
+
+  {% else %}
+    <p>Eruption not found.</p>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Top 20 Volcanos with the most eruptions</h1>
+  <p>Be aware that the last eruption in our dataset was dated  on March 2020.</p>
+  <canvas id="eruptionChart" width="800" height="400"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    var ctx = document.getElementById('eruptionChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [{% for entry in chart_data %}"{{ entry.volcano_name }}",{% endfor %}],
+            datasets: [{
+                label: 'Number of Eruptions',
+                data: [{% for entry in chart_data %}{{ entry.eruption_count }},{% endfor %}],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+  </script>
+
+{% endblock %}

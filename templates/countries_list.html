@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>List of Countries with Volcanic Eruptions</h1>
+
+  {% if countries %}
+    <ul>
+      {% for country in countries %}
+        <li><a href="{{ url_for('eruptions_by_country', country=country) }}">{{ country }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No countries available.</p>
+  {% endif %}
+
+{% endblock %}

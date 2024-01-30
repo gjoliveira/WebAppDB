@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Volcano Database</h1>
+
+  <h2>About</h2>
+  <p>This web application illustrates the use of a Volcano database . The application is built using 
+    <a href="https://docs.python.org/3/library/sqlite3.html">sqlite3</a>,
+    <a href="https://flask.palletsprojects.com">Flask</a>, and
+    <a href="https://jinja.palletsprojects.com">Jinja</a>.
+  </p>
+
+  <h2>Database Statistics</h2>
+  <table>
+    <tr>
+      <th>Items</th>
+      <th>Count</th>
+    </tr>
+    <tr>
+      <td>Volcanos</td>
+      <td>{{ stats.v }}</td>
+    </tr>
+    <tr>
+      <td>Eruptions</td>
+      <td>{{ stats.e }}</td>
+    </tr>
+    <tr>
+      <td>Events</td>
+      <td>{{ stats.e }}</td>
+    </tr>
+    <tr>
+      <td>Rocks</td>
+      <td>{{ stats.r }}</td>
+    </tr>
+  </table>
+
+  <h2> Functionalities</h2>
+
+  <h3>Volcanos</h3>
+  <p>
+    <a href="/volcanos">List all</a>
+  </p>
+  <p>Get volcano info:
+    <form name="volcano_search" onsubmit="window.open('/volcanos/'+document.forms['volcano_search'].elements['name'].value,'_self'); return false;">
+      Volcano Name: <input value="None" name="name" type="text" required/>
+      <input type="button" value="get" onclick="window.open('/volcanos/'+document.forms['volcano_search'].elements['name'].value,'_self')"/>
+    </form>
+  </p>
+
+  <h3>Rocks</h3>
+  <p>
+    <a href="/rocks">List all</a>
+  </p>
+    </form>
+  </p>
+      
+  <h3>Rocks for a Volcano</h3>
+  <p>
+    <form name="rocks_search" onsubmit="window.open('/rocks/'+document.forms['rocks_search'].elements['name'].value,'_self'); return false;">
+      Volcano Name: <input value = "None" name="name" type="'text" required/>
+      <input type="button" value="get" onclick="window.open('/rocks/'+document.forms['rocks_search'].elements['name'].value,'_self')"/>
+    </form>
+  </p>
+
+  <h3>Volcanos by Country</h3>
+  </p>
+  <p>Get volcano info by country:
+    <form name="volcano_country_search" onsubmit="window.open('/volcanos/country/'+document.forms['volcano_country_search'].elements['country'].value,'_self'); return false;">
+      Country: <input value="None" name="country" type="text" required/>
+      <input type="button" value="get" onclick="window.open('/volcanos/country/'+document.forms['volcano_country_search'].elements['country'].value,'_self')"/>
+    </form>
+  <p class="highlighted-text">
+    Below you have access to the list of countries in our database so you don't misspell them.
+  </p>
+
+  
+  <h2>List of Countries</h2>
+  <div id="countryGrid">
+    <div class="column">
+      <span>Algeria</span>
+      <span>Antarctica</span>
+      <span>Argentina</span>
+      <span>Armenia</span>
+      <span>Armenia-Azerbaijan</span>
+      <span>Australia</span>
+      <span>Bolivia</span>
+      <span>Burma (Myanmar)</span>
+      <span>Cameroon</span>
+      <span>Canada</span>
+      <span>Cape Verde</span>
+      <span>Chad</span>
+      <span>Chile</span>
+      <span>Chile-Argentina</span>
+      <span>Chile-Bolivia</span>
+    </div>
+    <div class="column">
+      <span>Chile-Peru</span>
+      <span>China</span>
+      <span>China-North Korea</span>
+      <span>Colombia</span>
+      <span>Colombia-Ecuador</span>
+      <span>Comoros</span>
+      <span>Costa Rica</span>
+      <span>DR Congo</span>
+      <span>DR Congo-Rwanda</span>
+      <span>Djibouti</span>
+      <span>Dominica</span>
+      <span>Ecuador</span>
+      <span>El Salvador</span>
+      <span>El Salvador-Guatemala</span>
+      <span>Eritrea</span>
+    </div>
+    <div class="column">
+      <span>Eritrea-Djibouti</span>
+      <span>Ethiopia</span>
+      <span>Ethiopia-Djibouti</span>
+      <span>Ethiopia-Kenya</span>
+      <span>Fiji</span>
+      <span>France</span>
+      <span>Georgia</span>
+      <span>Germany</span>
+      <span>Greece</span>
+      <span>Grenada</span>
+      <span>Guatemala</span>
+      <span>Guatemala-El Salvador</span>
+      <span>Honduras</span>
+      <span>Iceland</span>
+      <span>Indonesia</span>
+    </div>
+    <div class="column">
+      <span>Iran</span>
+      <span>Italy</span>
+      <span>Japan</span>
+      <span>Japan - administered by Russia</span>
+      <span>Kenya</span>
+      <span>Madagascar</span>
+      <span>Mexico</span>
+      <span>Mexico-Guatemala</span>
+      <span>Mongolia</span>
+      <span>Netherlands</span>
+      <span>New Zealand</span>
+      <span>Nicaragua</span>
+      <span>Niger</span>
+      <span>North Korea-South Korea</span>
+      <span>Norway</span>
+    </div>
+    <div class="column">
+      <span>Panama</span>
+      <span>Papua New Guinea</span>
+      <span>Peru</span>
+      <span>Philippines</span>
+      <span>Portugal</span>
+      <span>Russia</span>
+      <span>Saint Kitts and Nevis</span>
+      <span>Saint Lucia</span>
+      <span>Saint Vincent and the Grenadines</span>
+      <span>Samoa</span>
+      <span>Saudi Arabia</span>
+      <span>Solomon Islands</span>
+      <span>South Africa</span>
+      <span>South Korea</span>
+      <span>Spain</span>
+    </div>
+    <div class="column">
+      <span>Sudan</span>
+      <span>Syria-Jordan-Saudi Arabia</span>
+      <span>Taiwan</span>
+      <span>Tanzania</span>
+      <span>Tonga</span>
+      <span>Turkey</span>
+      <span>Uganda</span>
+      <span>Uganda-Rwanda</span>
+      <span>Undersea Features</span>
+      <span>United Kingdom</span>
+      <span>United States</span>
+      <span>Vanuatu</span>
+      <span>Vietnam</span>
+      <span>Yemen</span>
+    </div>
+  </div>
+
+  <h3>Eruptions</h3>
+  <p>
+    <a href="/eruptions">List all</a>
+  </p>
+    </form>
+  </p>
+  
+  <h3>Eruptions by Country</h3>
+  <p>Get eruption info by country:
+    <form name="eruption_country_search" onsubmit="window.open('/eruption/'+document.forms['eruption_country_search']['country'].value,'_self'); return false;">
+      Country: <input value="None" name="country" type="text" required/>
+      <input type="button" value="get" onclick="window.open('/eruption/'+document.forms['eruption_country_search']['country'].value,'_self')"/>
+    </form>
+  </p>
+
+  <h3>Eruptions between years</h3>
+  <p>Get eruption info between 2 years:
+    <form action="/eruption" method="get">
+      Start Year: <input name="start_year" type="number"  step="1" required/>
+      End Year: <input name="end_year" type="number"  step="1" required/>
+      <input type="submit" value="get"/>
+    </form>
+  </p>
+
+  <h3>Events</h3>
+  <p>
+    <a href="/events">List all</a>
+  </p>
+    </form>
+  </p>
+  
+  
+  <h3>VEI</h3>
+<p>Get info by VEI (goes from 0 to 7):
+  <form name="vei_search" onsubmit="window.open('/eruption/vei/'+document.forms['vei_search'].elements['vei'].value,'_self'); return false;">
+    VEI: <input value="None" name="vei" type="text" required/>
+    <input type="button" value="get" onclick="window.open('/eruption/vei/'+document.forms['vei_search'].elements['vei'].value,'_self')"/>
+  </form>
+</p>
+
+
+
+  
+
+<h3>Top 20 Volcanos by Eruption Count</h3>
+<p>
+  <a href="/volcanos/graph">View Bar Chart</a>
+</p>
+
+
+
+<h3>Top 10 Countries with the  most number of volcanos </h3>
+<p>
+  <a href="/volcanos/chart">View Chart</a>
+</p>
+
+{% endblock %}
+
+
+<h3> Rocks of a  a Volcano</h3>
+<p>
+  <a href="/rocks/">View Rocks for Pico</a>
+</p>

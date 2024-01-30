@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Volcanos</title>
+</head>
+<body>
+    <h1>List of Volcanos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Volcano Number</th>
+                <th>Volcano Name</th>
+                <th>Primary Volcano Type</th>
+                <th>Last Eruption Year</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Tectonic Settings</th>
+                <th>Country</th>
+                <th>Region</th>
+                <th>Subregion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for volcano in volcanos %}
+                <tr>
+                    <td><a href="/volcanos/number/{{volcano.volcano_number}}">{{ volcano.volcano_number }}</a></td>
+                    <td>{{ volcano.volcano_name }}</td>
+                    <td>{{ volcano.primary_volcano_type }}</td>
+                    <td>{{ volcano.last_eruption_year }}</td>
+                    <td>{{ volcano.latitude }}</td>
+                    <td>{{ volcano.longitude }}</td>
+                    <td>{{ volcano.tectonic_settings }}</td>
+                    <td>{{ volcano.country }}</td>
+                    <td>{{ volcano.region }}</td>
+                    <td>{{ volcano.subregion }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

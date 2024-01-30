@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Volcano Eruptions between {{ start_year }} and {{ end_year }}</h1>
+
+  {% if eruptions %}
+    <table>
+      <thead>
+        <tr>
+          <th>Volcano Name</th>
+          <th>Start Year</th>
+          <th>Volcano Type</th>
+          <th>Country</th>
+          <th>Region</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for eruption in eruptions %}
+          <tr>
+            <td>{{ eruption.volcano_name }}</td>
+            <td>{{ eruption.eruption_start_year }}</td>
+            <td>{{ eruption.primary_volcano_type }}</td>
+            <td>{{ eruption.country }}</td>
+            <td>{{ eruption.region }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No eruption information available for the selected year range.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Volcano Information</h1>
+
+  {% if volcano_info %}
+    <h2>{{ volcano_info['volcano_name'] }}</h2>
+
+    <p><strong>Volcano Number:</strong> {{ volcano_info['volcano_number'] }}</p>
+    <p><strong>Primary Volcano Type:</strong> {{ volcano_info['primary_volcano_type'] }}</p>
+    <p><strong>Last Eruption Year:</strong> {{ volcano_info['last_eruption_year'] }}</p>
+    <p><strong>Latitude:</strong> {{ volcano_info['latitude'] }}</p>
+    <p><strong>Longitude:</strong> {{ volcano_info['longitude'] }}</p>
+    <p><strong>Tectonic Settings:</strong> {{ volcano_info['tectonic_settings'] }}</p>
+    <p><strong>Country:</strong> {{ volcano_info['country'] }}</p>
+    <p><strong>Region:</strong> {{ volcano_info['region'] }}</p>
+    <p><strong>Subregion:</strong> {{ volcano_info['subregion'] }}</p>
+    <!-- Add more fields as needed -->
+
+  {% else %}
+    <p>Volcano not found.</p>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Eruptions</title>
+</head>
+<body>
+    <h1>List of Eruptions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Eruption Number</th>
+                <th>Volcano Number</th>
+                <th>Eruption category</th>
+                <th>Area of activity</th>
+                <th>VEI</th>
+                <th>Eruption start year</th>
+                <th>Evidence method dating</th>
+                <th>End year</th>
+                <th>End month</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eruptions in eruption %}
+                 <tr>
+	            <td><a href="/eruptions/{{ eruptions.eruption_number }}">{{ eruptions.eruption_number }}</a></td>
+                    <td>{{ eruptions.volcano_number }}</td>
+                    <td>{{ eruptions.eruption_category }}</td>
+                    <td>{{ eruptions.area_of_activity }}</td>
+                    <td>{{ eruptions.vei }}</td>
+                    <td>{{ eruptions.eruption_start_year }}</td>
+                    <td>{{ eruptions.evidence_method_dating }}</td>
+                    <td>{{ eruptions.end_year }}</td>
+                    <td>{{ eruptions.end_month }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

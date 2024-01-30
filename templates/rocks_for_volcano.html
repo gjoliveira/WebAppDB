@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Rocks for Volcano: {{ volcano_name }}</h1>
+
+  {% if rocks %}
+    <p>Rocks associated with {{ volcano_name }}:</p>
+    <ul>
+      {% for rock in rocks %}
+        <li>{{ rock }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No rocks information available for the selected volcano.</p>
+  {% endif %}
+
+{% endblock %}

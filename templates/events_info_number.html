@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Event Information</h1>
+
+  {% if events_info_number %}
+    <h2>{{ events_info_number['event_number'] }}</h2>
+
+    <p><strong>Eruption Number:</strong> {{ events_info_number['eruption_number'] }}</p>
+    <p><strong>Event Type:</strong> {{ events_info_number['event_type'] }}</p>
+    <p><strong>Event Date Year:</strong> {{ events_info_number['event_date_year'] }}</p>
+    <p><strong>Event Date Month:</strong> {{ events_info_number['event_date_month'] }}</p>
+    <p><strong>Event Date Day:</strong> {{ events_info_number['event_date_day'] }}</p>
+    <!-- Add more fields as needed -->
+
+  {% else %}
+    <p>Event not found.</p>
+  {% endif %}
+
+{% endblock %}
